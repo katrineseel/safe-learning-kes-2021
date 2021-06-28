@@ -1,0 +1,416 @@
+% Template for Elsevier CRC journal article
+% version 1.2 dated 09 May 2011
+
+% This file (c) 2009-2011 Elsevier Ltd.  Modifications may be freely made,
+% provided the edited file is saved under a different name
+% https://www.overleaf.com/project/5fc8ff8007c4b02d0ea46685
+% This file contains modifications for Procedia Computer Science
+
+% Changes since version 1.1
+% - added "procedia" option compliant with ecrc.sty version 1.2a
+%   (makes the layout approximately the same as the Word CRC template)
+% - added example for generating copyright line in abstract
+
+%-----------------------------------------------------------------------------------
+
+%% This template uses the elsarticle.cls document class and the extension package ecrc.sty
+%% For full documentation on usage of elsarticle.cls, consult the documentation "elsdoc.pdf"
+%% Further resources available at http://www.elsevier.com/latex
+
+%-----------------------------------------------------------------------------------
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                          %%
+%% Important note on usage                                  %%
+%% -----------------------                                  %%
+%% This file should normally be compiled with PDFLaTeX      %%
+%% Using standard LaTeX should work but may produce clashes %%
+%%                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% The '3p' and 'times' class options of elsarticle are used for Elsevier CRC
+%% The 'procedia' option causes ecrc to approximate to the Word template
+\documentclass[3p,times,procedia]{elsarticle}
+\flushbottom
+
+\usepackage{amsmath}
+
+%% The `ecrc' package must be called to make the CRC functionality available
+\usepackage{ecrc}
+\usepackage{xcolor}
+\usepackage[bookmarks=false]{hyperref}
+    \hypersetup{colorlinks,
+      linkcolor=blue,
+      citecolor=blue,
+      urlcolor=blue}
+%\usepackage{amsmath}
+
+
+%% The ecrc package defines commands needed for running heads and logos.
+%% For running heads, you can set the journal name, the volume, the starting page and the authors
+
+%% set the volume if you know. Otherwise `00'
+\volume{00}
+
+%% set the starting page if not 1
+\firstpage{1}
+
+%% Give the name of the journal
+\journalname{Procedia Computer Science}
+
+%% Give the author list to appear in the running head
+%% Example \runauth{C.V. Radhakrishnan et al.}
+\runauth{Anand et al.}
+
+%% The choice of journal logo is determined by the \jid and \jnltitlelogo commands.
+%% A user-supplied logo with the name <\jid>logo.pdf will be inserted if present.
+%% e.g. if \jid{yspmi} the system will look for a file yspmilogo.pdf
+%% Otherwise the content of \jnltitlelogo will be set between horizontal lines as a default logo
+
+%% Give the abbreviation of the Journal.
+\jid{procs}
+
+%% Give a short journal name for the dummy logo (if needed)
+%\jnltitlelogo{Computer Science}
+
+%% Hereafter the template follows `elsarticle'.
+%% For more details see the existing template files elsarticle-template-harv.tex and elsarticle-template-num.tex.
+
+%% Elsevier CRC generally uses a numbered reference style
+%% For this, the conventions of elsarticle-template-num.tex should be followed (included below)
+%% If using BibTeX, use the style file elsarticle-num.bst
+
+%% End of ecrc-specific commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{comment}
+%% The amssymb package provides various useful mathematical symbols
+
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%% \usepackage{lineno}
+
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%%   round  -  round parentheses are used (default)
+%%   square -  square brackets are used   [option]
+%%   curly  -  curly braces are used      {option}
+%%   angle  -  angle brackets are used    <option>
+%%   semicolon  -  multiple citations separated by semi-colon
+%%   colon  - same as semicolon, an earlier confusion
+%%   comma  -  separated by comma
+%%   numbers-  selects numerical citations
+%%   super  -  numerical citations as superscripts
+%%   sort   -  sorts multiple citations according to order in ref. list
+%%   sort&compress   -  like sort, but also compresses numerical citations
+%%   compress - compresses without sorting
+%%
+%% \biboptions{authoryear}
+
+% \biboptions{}
+\newtheorem{definition}{Definition}
+% if you have landscape tables
+\usepackage[figuresright]{rotating}
+%\usepackage{harvard}
+% put your own definitions here:x
+%   \newcommand{\cZ}{\cal{Z}}
+%   \newtheorem{def}{Definition}[section]
+%   ...
+
+% add words to TeX's hyphenation exception list
+%\hyphenation{author another created financial paper re-commend-ed Post-Script}
+
+% declarations for front matter
+
+
+\begin{document}
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for the associated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for the associated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for the associated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%%
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\dochead{25th International Conference on Knowledge-Based and Intelligent Information \& Engineering Systems (KES 2021)}%
+%% Use \dochead if there is an article header, e.g. \dochead{Short communication}
+%% \dochead can also be used to include a conference title, if directed by the editors
+%% e.g. \dochead{17th International Conference on Dynamical Processes in Excited States of Solids}
+
+\title{Safe Learning for Control using Control Lyapunov Functions and Control Barrier Functions: A Review }
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{<author name>}
+%% \address[label1]{<address>}
+%% \address[label2]{<address>}
+
+
+
+\author[a]{Akhil Anand\corref{cor1}} 
+\author[a]{Katrine Seel\corref{cor1}}
+\author[a]{Vilde Gjærum}
+\author[b]{Anne Håkansson}
+\author[a]{Haakon Robinson}
+\author[a]{Aya Saad}
+
+
+
+\address[a]{Department of Engineering Cybernetics, Norwegian University of Science and Technology (NTNU), Trondheim, Norway}
+\address[b]{Department of Computer Science, Arctic University of Norway (UIT), Tromsø, Norway}
+
+\begin{abstract}
+Real-world autonomous systems are often controlled using conventional model-based control methods. But if accurate models of a system are not available, these methods may be unsuitable. For many safety-critical systems, such as robotic systems, a model of the system and a control strategy may be learned using data. When applying learning to safety-critical systems, guaranteeing safety during learning as well as testing/deployment is paramount. A variety of different approaches for ensuring safety exists, but the published works are cluttered and there are few reviews that compare the latest approaches. This paper reviews two promising approaches on guaranteeing safety for learning-based robust control of uncertain dynamical systems, which are based on control barrier functions and control Lyapunov functions. While control barrier functions provide an option to incorporate safety in terms of constraint satisfaction, control Lyapunov functions are used to define safety in terms of stability. This review categorises learning-based methods that use control barrier functions and control Lyapunov functions into three groups, namely reinforcement learning, online and offline supervised learning. Finally, the paper presents a discussion of the suitability of the different methods for different applications. 
+\end{abstract}
+
+\begin{keyword}
+safe learning; control barrier functions; control Lyapunov functions
+%%Type your keywords here, separated by semicolons ; 
+
+%% keywords here, in the form: keyword \sep keyword
+
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+\cortext[cor1]{Corresponding author.}
+\end{frontmatter}
+
+%\correspondingauthor[*]{Corresponding author. Tel.: +0-000-000-0000 ; fax: +0-000-000-0000.}
+\email{akhil.s.anand@ntnu.no, katrine.seel@ntnu.no }
+
+%%
+%% Start line numbering here if you want
+%%
+% \linenumbers
+
+%% main text
+
+%\enlargethispage{-7mm}
+\section{Introduction}
+
+\noindent In the last decade, learning algorithms have been widely explored for designing control policies for complex and uncertain dynamical systems ranging from robotic manipulators to autonomous underwater vehicles. Both supervised learning (SL) and reinforcement learning (RL) algorithms have proved to be useful tools in learning for control. Especially RL algorithms have proved to be successful for a variety of complex and high-dimensional control tasks \cite{Levine2018,Abbeel2009}. For systems with uncertain dynamics, learning-based methods represent an alternative to conventional robust controllers, by modelling the uncertainty from data. Providing theoretical safety guarantees for such learning algorithms is central to applying learning-based  methods to control real-world safety-critical systems. These algorithms have motivated the research community to consider several methods for ensuring safety of physicals systems for which learning-based algorithms are used to find control policies \cite{Akametalu2014,Wabersich2018,Chow2018,Cheng2019,Mannucci2018,Fan2020,Choi2020,Berkenkamp2019,Berkenkamp2017,Osinenko2020,Marvi2020}. 
+
+
+
+
+The notion of safety in learning-based control for real-world systems, such as robotic systems, has two aspects. The first aspect is ensuring safety during the learning process or the exploration phase, in cases when learning is done online. Online learning is here used to describe the process of learning by simultaneously interacting with and sampling from the system. The second aspect is guaranteeing safety of an already learned control policy. Specifically for most real-world robotic systems, learning the model or the control policy for the system, should be done partially or entirely online using the physical system, depending on the availability and accuracy of a prior model of the system. Even if a model of the system is available, learning a policy in simulation will often require fine tuning on the physical system, to compensate for inaccuracies of the prior model. This demands guaranteeing safety during the online learning process on the physical system in order to avoid any kind of damage to the robotic system or its environment. At the same time, the resulting learned control policy should have provable safety guarantees to facilitate its deployment on the real-world robotic system. For most learning-based algorithms, incorporating these guarantees may be done either by transforming the optimization problem or by changing the exploration process \cite{Garcia2015}.
+
+For safety-critical systems, the research community has mainly focused on safety in terms on constraint satisfaction, and mainly on state constraints. However, few of the learning algorithms used for designing learning-based controllers are capable of naturally incorporating state and input constraints. One of the predominant approaches for ensuring safe learning-based control, has been model predictive control (MPC) frameworks, that naturally incorporate state and input constraint satisfaction. MPC has been combined with SL methods in order to build or improve the prediction model as in \cite{manzano2020robust, Seel2021}. There are also many examples of MPC being combined with RL, for example as a value function approximator \cite{zanon2020safe, gros2019towards}, where stability and constraint satisfaction are ensured by design.
+
+
+Another approach for ensuring safe learning-based control, that is more agnostic with respect to the control framework, is the use of \textit{safety filters}. Safety filters function by verifying if a learned controller ensures safety in terms of the system states remaining inside a predefined safe set for all future times. If the learned controller does not pass the verification, it can be replaced by a known, safe controller. Alternatively, the learned control input can be minimally modified using an optimization problem, such that it satisfies the safety constraints. For both types of filters, a predefined safe set is necessary. One prominent method to calculate the safe set, is using reachability analysis \cite{Gillula2012}. However, this can be computationally demanding or result in potentially conservative approximations. 
+
+
+
+A different method for defining the safe sets, is employing control barrier functions (CBFs) \cite{Wieland2007}. CBFs gained popularity within the conventional control community during recent years, but have been utilized more as a safety filter for an existing nominal controller \cite{ Ames2019}. Many recent works in the learning-based control field use CBFs \cite{Taylor2019a, Marvi2020}. By utilising probabilistic data-driven methods such as Gaussian processes (GPs), complete prior system knowledge is no longer needed, and probabilistic safety guarantees can be provided  \cite{Cheng2019,Khojasteh2019,Wang2017,Dhiman2020}.
+
+In a different but slightly more conservative approach, safety can be guaranteed using stability guarantees of the closed-loop system. These approaches are typically based on Lyapunov stability verification, using control Lyapunov functions (CLFs)\cite{Khalil2002NonlinearSystems}. Compared to the safe sets, found either by reachability analysis or using CBFs, level sets of CLFs are both invariant and attractive. If the safe set can be designed as a subset of the region of attraction (ROA) defined by a Lyapunov function, then CLFs can be used to guarantee safety of the closed-loop system, and exploration in closed-loop is then typically limited to this region. A combination of CLF and CBF can be used to guarantee a safe and stabilizing controller \cite{Romdlony2016a}, which is also utilized in learning to guarantee stability \cite{Jin2020}. The combination of functions has been used in MPC frameworks \cite{Wu2020}, but are seldomly used in model-based RL algorithms \cite{Choi2020}.
+
+
+For safety-critical systems, it can be paramount to ensure safety, either in terms of constraint satisfaction, or in terms of stability or both. Ensuring safety and stability by using CBFs and CLFs are particularly suited for learning, as both properties can be expressed using functions that can be learned. This paper aims to review approaches using CLFs and CBFs for ensuring safety and stability in learning-based methods considering their suitability in a learning framework and because they can be applied to a broad wide range of control frameworks. Even though this review is motivated by robotic applications, these approaches are generalizable to other types of control applications e.g. process control. The rest of the paper is organized as follows: Section \ref{sec:related_work} presents related work. The review of the learning algorithms is organised as follows: Section \ref{background}, presents a technical background of how CLFs and CBFs are used to provide safety guarantees. Section \ref{RL}, treats RL algorithms, section \ref{sec:online_supervised}, presents a review of online SL algorithms, followed by offline SL methods in Section \ref{sec:offline_supervised}. The mentioned categories and the corresponding relevant references treated for each of them, are listed in Table \ref{table:refs}. To the best of the authors' knowledge there are currently no published research work on the combination of CLFs and CBFs for offline SL methods. Section \ref{discussion} provides a short summary of the algorithms treated in the former section, and a discussion of the suitability of the methods for different applications. Finally, in Section \ref{conclusion}, the concluding remarks are presented. 
+
+\begin{table}[ht]\label{table:refs}
+\centering
+\caption{Overview of the relevant literature.}
+\begin{tabular}[t]{lccc}
+\hline
+& CBF & CLF & CLF + CBF\\
+\hline
+RL & Section \ref{sec:rl-cbf} : \cite{Cheng2019, Marvi2020}  & Section \ref{sec:rl-clf} : \cite{Chow2019, Chow2018, Perkins2003, Berkenkamp2017} & Section \ref{sec:rl-clf-cbf}: \cite{Choi2020}\\
+Online SL & Section \ref{sec:online-cbf} : \cite{ Khojasteh2019, Wang2017, Taylor2019a}  & Section \ref{sec:online-clf} : \cite{Castaneda2020, Mittal2020, Umlauft2017, Zhai2019, Berkenkamp2016} & Section \ref{sec:online-clf-cbf} : \cite{Jin2020, Dhiman2020}\\
+Offline SL &  Section \ref{sec:offline-cbf} : \cite{Srinivasan2020, Zhao2020, Jagtap2020, Saveriano2019, Robey2020} & Section \ref{sec:offline-clf} : \cite{Taylor2019}   & -  \\
+\hline
+\end{tabular}
+
+\end{table}%
+
+\section{Related work}\label{sec:related_work}
+There are a few number of review papers in the area of learning for control, discussing different methods for ensuring safety. A survey on model learning of autonomous systems is presented in Nguyen-Tuong et al. \cite{Nguyen-tuong2011}, discussing safety challenges in existing methods. In \cite{Tadele2014}, a comprehensive review on safety criteria and metrics, controller design along with mechanical design and actuation for domestic robotic systems is presented, where learning-based approaches were mentioned briefly. A survey on safe RL \cite{Garcia2015}, discusses cases where it is important to respect safety constraints during learning and/or deployment. In this survey the authors categorise safe RL methods, based on whether the safety criterion is incorporated into the optimality criterion or by modifying the exploration process. In \cite{Lasota2017} and \cite{Zacharaki2020}, the authors present a comprehensive survey of methods for safe human-robot interaction. A review work on learning-based MPC with emphasis on safe learning is presented in \cite{Hewing2020}, categorising the methods based on learning the system dynamics, learning the control policy or using safety filters. In \cite{Kim2021}, a review of safe learning and optimization methods is presented as a continuation of \cite{Garcia2015} with an additional review of active learning and optimization methods. Kim et al. \cite{Kim2021} review learning and optimization algorithms that ensure safety, where safety is guaranteed by adding constraints and/or ensuring that any unsafe states are avoided. But none of these surveys specifically address the CLF- and CBF-based approaches in learning-based control. 
+
+
+\section{Safety Guarantees using Control Barrier Functions and Control Lyapunov Functions}\label{background}
+
+Throughout this paper, nonlinear dynamical systems in its general form (\ref{general_ds}) and a control affine form (\ref{nl_ca_ds}) is considered, where  $f$ and $g$ are locally Lipschitz, $x \in \mathcal{X} \subseteq \mathbb{R}^{n}$ denotes the state and, $ u \in \mathcal{U} \subseteq \mathbb{R}^{m}$ denotes the control input. 
+\begin{equation} \label{general_ds}
+    \dot{x}=f(x,u) \, ,
+\end{equation}
+\begin{equation} \label{nl_ca_ds}
+\dot{x}=f(x)+g(x) u \, .
+\end{equation}
+
+For the rest of this section, we will use the following notation.
+A continuous function $\alpha:[0, a) \rightarrow [0, \infty)$ is called a class $\mathcal{K}$ function, if $\alpha(0) = 0$ and it is strictly increasing. A function is called a class $\mathcal{K}_\infty$ function, if it belongs to class $\mathcal{K}$, $a = \infty$ and $\lim _{r \rightarrow \infty} \alpha(r)=\infty$. Let $L_mQ(x)$ denote the Lie derivative of a function $Q(x)$ along another function $m(x)$ i.e. $L_mQ(x):=\frac{\partial Q(x)}{\partial x}m(x)$. 
+
+\subsection{Notion of safety} 
+For a dynamical system controlled by a control policy in order to perform a task, a general notion of safety is considered. For the system to be safe, it should be guaranteed that the system will never enter any unsafe region under the current policy. Safety can be enforced by ensuring the forward invariance of a safe set \cite{Ames2019}.  That is,  all trajectories starting in the set of safe states will remain within the safe set for all $t \geq 0$. 
+
+\begin{definition} \label{notion of safety}
+(Safe control) Consider a general form of dynamical systems (\ref{general_ds}), where the control policy $u = u(x)$ is a mapping from state to the optimal control action, $u : \mathcal{X} \to \mathcal{U}$. Consider a given set of unsafe states $\mathcal{X}_{u} \subseteq \mathcal{X}$, a set of initial condition $\mathcal{X}_{0} \subseteq \mathcal{X}$  and a set of target/goal states  $\mathcal{X}_{g} \subseteq \mathcal{X}$ where $\mathcal{X}_{u} \cap \mathcal{X}_{0}=\emptyset$ and $\mathcal{X}_{u} \cap \mathcal{X}_{g}=\emptyset$. If for all the possible trajectories $x(t)$ evolving from the set of initial conditions to the set of goal states, such that $x(t) \not\in \mathcal{X}_{u}$, for all time, $ t \in T \subseteq \mathbb{R}^{+}$ , the system is guaranteed to be safe under the control policy $u(x)$ . 
+\end{definition}
+
+\subsection{Control Lyapunov Functions}\label{sec:clf}
+
+The notion of control Lyapunov function \cite{Freeman1996} to design asymptotically stabilizing controllers to a nonlinear system, was introduced by Artstein and generalised by Sontag \cite{Artstein1983, Sontag1989}. Extending the Lyapunov function to a control Lyapunov function (CLF) helps to find a control law that ensures stability of a dynamical system in (\ref{nl_ca_ds}). 
+
+\begin{definition} \label{CLF_definition}
+    A positive definite function $V  :  \mathbb{R}^{n} \to \mathbb{R} $, is a CLF to the system (\ref{nl_ca_ds}), if there exist a  class $\mathcal{K}$ function, $\gamma$, and a control law,
+     \begin{equation}
+        u_{clf} = u \in U, \quad s.t \quad L_{f} V(x)+L_{g} V(x) u + \gamma (V(x)) \leq 0 \, ,
+    \end{equation} 
+   which render the system asymptotically stable at the point $x^{*} = 0$  where $V(x^{*}) = 0$.
+   For a system (\ref{nl_ca_ds}), the existence of a CLF implies that for all $x$ in the level set $\mathcal{V}(c) = \{x \in \mathcal{X} | V(x) \leq c\}$ for $c > 0$, the control law $u_{clf}$ asymptotically stabilizes the system. The largest level set is referred to as the region of attraction (ROA), and is forward invariant and attractive.
+\end{definition}
+
+ 
+\subsection{Control Barrier Functions}\label{sec:cbf}
+
+A set $\mathcal{C}$, defined as a superlevel set of a continuously differentiable function $h : \mathcal{X} \subset \mathbb{R}^{n} \to \mathbb{R}$, is safe if,
+    \begin{equation} \label{set_invariance_h}
+        \begin{aligned}
+            \mathcal{C}=\left\{ h(x) \geq 0\right\} , \hspace{1cm}
+            \partial \mathcal{C}=\left\{ h(x)=0\right\} , \hspace{1cm}
+            \operatorname{Int}(\mathcal{C})=\left\{ h(x)>0\right\},
+        \end{aligned}
+    \end{equation}
+    where $x \in \mathcal{X} \subset \mathbb{R}^{n}$ and $\partial \mathcal{C}$ represents the boundary of $\mathcal{C}$. In order to address safety while controlling dynamical systems, the control barrier function (CBF) is introduced \cite{Wieland2007}. The general definition considered here is from \cite{Ames2019}. 
+    \begin{definition}
+       $h$ in (\ref{set_invariance_h}) is a CBF for a dynamical system in (\ref{nl_ca_ds}), if there exists a class $\mathcal{K}_{\infty}$ function, $\alpha$ defined over the entire real line, $\mathbb{R}$, and a control law $u_{cbf} = u \in U$, s.t
+    \begin{equation}\label{eq:cbc}
+        L_{f} h(x)+L_{g} h(x) u+\alpha(h(x)) \geq 0 \, ,
+    \end{equation}
+    for all $x \in \mathcal{X}$. Given the control barrier condition (CBC) in (\ref{eq:cbc}), the safe set $\mathcal{C}$ is forward invariant for the system (\ref{nl_ca_ds}).
+   \end{definition}
+
+
+
+
+\section{Control Barrier Functions and Control Lyapunov Functions in Reinforcement learning} \label{RL}
+
+Complex dynamical systems, such as robotic systems, are often difficult to model accurately due to their highly nonlinear and uncertain dynamics. Model-based RL can be used to estimate the unknown system dynamics online, while simultaneously learning an optimal policy to perform a particular task using samples from the learned model. Whereas model-free RL algorithms can be used to learn the policy directly. Both types of algorithms come at the cost of demanding online safety certification during learning, in addition to safety certification of the learned policy. Therefore safety certification of RL algorithms for systems with unknown dynamics is two-fold, (1) safety certification during learning and (2) offline safety certification of the learned policy i.e. after convergence. Depending on the selected RL algorithm, both regards may be ensured simultaneously or separately.
+
+
+\subsection{Control Barrier Functions}\label{sec:rl-cbf}
+There are a few different approaches utilizing CBFs to guarantee safety in a RL setting. In \cite{Cheng2019}, a framework for combining model-free RL algorithms with model-based CBFs is proposed. The approach ensures safety and improves the exploration efficiency of the RL algorithm. The model of the  dynamical system to be controlled is assumed unknown. As the RL algorithm explores the system's states, measurements are used to update a GP model used to learn the unknown system dynamics. The GP model is in turn used to derive the CBC defined in Section \ref{sec:cbf}. Here, safety is determined by adding a compensating CBF-based controller to the model-free RL policy. This is formulated using a quadratic program (QP) with CBC constraints as a safety filter, which aims to modify the RL-policy as little as possible, while ensuring that the state remains within the safe set. This approach resembles the general safety filter formulated in \cite{Wabersich2018}. As policy iteration is done considering the altered RL-policy, i.e. with the CBF-addition, the learned policy is encouraged to operate in the safe part of state space. To avoid solving a QP every time-step during deployment the method is extended by approximating the compensating CBF-based controller using a neural network (NN) during the learning process.  
+
+Another approach is presented in \cite{Marvi2020}, where an off-policy actor-critic method is used to learn a policy without requiring knowledge of the system dynamics, i.e a model-free RL algorithm. A safe, possibly conservative policy is used to explore while the algorithm learns, and by adding a CBF to the value function, the learned policy will stay inside the safe set determined by the CBF condition. A coefficient is used to define a trade-off between optimality, defined in terms of the original utility function, and safety, determined using the CBF. Using an off-policy algorithm, where the resulting policy is approximated using a NN, the safety guarantees will only carry over given that the NN converges to the optimal solution.
+
+\subsection{Control Lyapunov Functions}\label{sec:rl-clf}
+For RL algorithms, a distinction is typically made between policy-gradient methods as opposed to value-based methods. For value-based methods, the Lyapunov-based approach has generated interest, because the value function can be used as a Lyapunov function. This idea is exploited in \cite{Berkenkamp2017}, where safety constraints are defined using the ROA, i.e all states inside the ROA are safe. The ROA can be approximated for a fixed policy, by formulating a Lyapunov function and taking the largest level set as the ROA, as defined in Section \ref{sec:clf}. In \cite{Berkenkamp2017}, the uncertain dynamics are learned using GPs with measurements collected online by sampling from the system. Confidence intervals, defined based on the learned system dynamics model, are used to check the Lyapunov decrease condition for the system. An optimization problem constrained by the Lyapunov decrease condition is then solved to find a policy that results in the largest possible level set (largest possible ROA). The exploration strategy is based on information maximization. By choosing state-action pairs where the dynamics are most uncertain, the confidence interval will shrink so the ROA can be expanded incrementally. This is the same exploration strategy used in \cite{Berkenkamp2016}, which is treated in Section \ref{sec:online-clf}. 
+
+
+Lypunov functions have also been used with RL algorithms to achieve a different understanding of safety. In \cite{Chow2018}, an agent's behaviour policy is defined to be safe, if the cumulative cost constraint of the constrained Markov decision problem is satisfied. The Lyapunov function is designed to be a uniform upper bound on the constraint cost, such that the corresponding algorithm guarantees feasibility and optimality under certain conditions. This approach, is also extended to policy-gradient methods in \cite{Chow2019}, for which the policy function, that is a mapping from state to action, is learned directly.
+
+In a different approach, Lyapunov functions have been used to construct safe RL agents that switch among a safe base of controllers. This was first done in \cite{Perkins2003}, where Lyapunov functions are used to provide stability guarantees for each controller. 
+
+\subsection{Control Lyapunov Functions and Control Barrier Functions}\label{sec:rl-clf-cbf}
+In \cite{Choi2020}, system uncertainty is estimated in the CLF and the CBFs using deep NNs. An actor-critic RL algorithm is used to minimize the effect of model uncertainty in the learned CLF and CBF using a reward function that penalizes the estimation errors in the CLF and CBF. The learned CBF and CLF constraints, compensating for model uncertainty, are exploited in a QP to find a safe and stable controller for the uncertain system, using input-output linearization. This work assumes that CLFs and CBFs designed for the nominal model, will also serve as a CLFs and CBFs for the true system. This assumption holds for systems where the nominal model and the true system have the same relative degree \cite{Taylor2019a}.
+
+\section{Control Barrier Functions and Control Lyapunov Functions in Online Supervised Learning}\label{sec:online_supervised}
+Online SL methods are here understood as either continuous or episodic learning of system components in closed-loop. In this setting, SL methods are used for learning a model with data collected by sampling from the controlled system. Unlike RL-algorithms, online SL methods are usually not used to optimize a control policy directly. However, for a uncertain system, CBFs or CLFs can be learned in order to determine a safe controller. Often a safe controller is found by solving an optimization problem, with constraints formulated using the learned models.
+
+
+\subsection{Control Barrier Functions}\label{sec:online-cbf}
+In \cite{Taylor2019a}, the authors present an approach to improve safety of a dynamical system by estimating the model uncertainty using CBFs. Instead of estimating the uncertainty by learning the system dynamics from measurements, the uncertainty is modelled directly in the CBF. This approach is less restrictive on the types of system uncertainties, as it estimates both uncertainties due to parametric errors and unmodelled dynamics. The uncertainty is learned episodically using NNs, and included as a constraint in an optimization problem modifying a nominal controller to be safe. It is assumed that if there exists a valid CBF for the nominal model of the system, then it is also a valid CBF for the uncertain model. For learning the uncertainties, an episodic learning approach is used, which alternates between collecting data using the current controller and synthesizing a new controller by solving a QP. At every iteration of the episodic learning, a heuristically weighted blend of the newly synthesised controller and the nominal controller is used to explore new data.  
+
+A different approach for learning the safe region of an unknown dynamical system is presented in \cite{Wang2017}. This paper considers a dynamical system on the form (\ref{nl_ca_ds}) with an additional unknown affine disturbance term, which is modelled using a GP. A high probability confidence interval is defined over this GP model. It is assumed that an initial safe region and the corresponding barrier certificates are given. With online learning, the safe region is expanded until no more improvement is obtained with further exploration. A QP is formulated to maximize the volume of the barrier certified safe region with CBC as the constraint. An adaptive sampling method of the discretized state space, namely an information-maximization-based exploration method, inspired by \cite{Berkenkamp2016}, is proposed. The system is driven to any selected state by employing a nominal controller augmented with a safety filter (the QP with CBC as constraint). The approach is successfully demonstrated on a quadrotor to learn maximally aggressive movements in the vertical direction with an uncertain model and limited thrust. 
+
+A more general approach in the direction of safe online learning of system dynamics is presented in \cite{Khojasteh2019}, for a nonlinear control affine dynamical system (\ref{nl_ca_ds}). The unknown system dynamics are modelled as a GP and used to optimize the system behavior and to guarantee safety with high probability. A chance constraint, i.e. a constraint that needs to hold for the entire state or input trajectory with a given probability, is specified using a predefined CBF defined by the estimated dynamics. The chance constrained version of an optimization problem for the control input is solved providing safety guarantees for a zero-order hold (ZOH) controller over a control time step. The safe control input provided by solving the constrained QP is then used to explore in order to train the GP. Similar probabilistic safety guarantees were extended to systems with arbitrary relative degree using exponential CBFs \cite{Ames2019}.
+
+
+\subsection{Control Lyapunov Functions}\label{sec:online-clf}
+% Common for online supervised learing-based CLFs: need some data-collectio algorithm, that steers the trade-off between exploitation and exploration 
+
+Online SL methods can be used for finding safe controllers using Lyapunov analysis.  In \cite{Castaneda2020}, GP regression is used to model the uncertainties in the system. The resulting stochastic model is used to formulate a stochastic CLF, included as a chance constraint in a second-order cone program (SOCP). A stabilizing controller for the system with probabilistic guarantees is derived by solving the SOCP. 
+
+An accurate estimate of the ROA is useful for ensuring safety as addressed in Section \ref{sec:rl-clf}. Learning can be used to estimate the unknown parts of the dynamic model of an uncertain system and thereby expand the ROA as exploited in \cite{Berkenkamp2016}. In \cite{Berkenkamp2016}, a GP is used to learn the uncertain parts of the dynamics and the ROA is taken as the largest level-set of the resulting CLF. The next state to be explored is chosen as the point with largest variance within the current estimate of the ROA. A fixed locally safe controller is used to drive the system to the chosen next state. The episodically updated GP model incrementally decreases its variance and thereby increases the accuracy of the ROA estimation.
+
+
+A similar approach is used in \cite{Zhai2019}, where the goal is to find an accurate estimate of the ROA. Here a GP is used for learning the Lyapunov function rather than dynamics as in \cite{Berkenkamp2016}. Using the converse Lyapunov theorem, which states that for a stable system there exists a Lyapunov function, a GP is trained with closed-loop data in order to infer the Lyapunov function, and in turn estimate the ROA like described above. Safe samples are collected using an algorithm that aims to balance the trade-off between exploration, in order to expand the resulting estimate of the ROA, and exploitation, i.e. reducing the uncertainty of the GP-learned Lyapunov function. 
+
+Learning a Lyapunov function can be useful for stability analysis of MPC algorithms. In \cite{Mittal2020}, a NN is used for learning a Lyapunov function for the closed-loop system, used as a terminal cost in the MPC scheme. For uncertain nonlinear systems, this often needs to be conservatively approximated, with implications on closed-loop performance. By learning the terminal cost from data, the learned Lyapunov function is used to guarantee stability of the closed-loop system, in addition to ensuring robustness with respect to model errors in the prediction model. 
+
+Stability properties formulated using Lyapunov functions may be used to add knowledge about an existing closed-loop system, for which the system dynamics are unknown. This is investigated in \cite{Umlauft2017}, where the stochastic dynamics of a closed-loop system are learned based on training data and a constrained likelihood maximization problem, exploiting the fact that the closed-loop system is exponentially stable. The stability property is expressed in terms of a Lyapunov function, included as a constraint to the maximization problem. 
+
+
+\subsection{Control Lyapunov Functions and Control Barrier Functions}\label{sec:online-clf-cbf}
+There are two notable approaches combining CBFs and CLFs in an online SL framework to ensure safety and stability. In \cite{Dhiman2020}, the authors augment the approach presented in \cite{Khojasteh2019} by using both CLFs and CBFs. The system dynamics are learned online while satisfying safety constraints. The computationally efficient matrix variate Gaussian process regression method is used to learn the drift and input gain terms of control affine dynamical system. In addition to a CBF-based chance constraint in \cite{Khojasteh2019}, a CLF-based chance constraint is included for specifying stability constraints. This method is extended to systems with arbitrary relative degree to synthesize a safe control policy by solving a deterministic SOCP.
+
+The second approach presented in \cite{Jin2020}, uses SL to learn a safe and optimal goal reaching policy using a barrier function and a Lyapunov-like function respectively, for dynamical systems of the form (\ref{general_ds}) The condition for asymptotic stability is translated to goal reaching utilizing a Lyapunov-like function, considering the equilibrium point as the goal. The proposed Lyapunov-like function is less restrictive as it allows for specifying a set of goal states rather than just a fixed point. In addition, the Lie derivative is not required to always be negative definite. The policy, barrier function and the Lyapunov-like function are parameterized using deep NNs. The loss function for learning the barrier function is designed to penalize the violation of any constraints. Similarly, another loss function is defined to penalise the violation of Lyapunov-like function constraint. The two loss functions are then combined into a single optimization objective called the \textit{total certificate risk}, which is positive semi-definite. Joint training of the barrier certificate, Lyapunov-like function and the policy networks is achieved by minimizing this objective. Additionally, a verification procedure is introduced to confirm the validity of the barrier and Lyapunov-like networks. One drawback of this approach is that it does not guarantee safety during the learning process. Guarantees are only provided for the final policy obtained from the learning process upon verification of the networks. 
+
+\section{Control Barrier Functions and Control Lyapunov Functions in Offline Supervised Learning}\label{sec:offline_supervised}
+Similarly to online SL and RL, offline SL can be utilized to learn the unknown system dynamics, CBFs and/or CLFs from collected data. Unlike in RL or online SL, offline SL is not an active learning method, for which an algorithm chooses the data points from the sampling space of the system using an exploration strategy. However, provided with an adequate data set, offline supervised learning can achieve the same final goals. 
+
+\subsection{Control Barrier Functions}\label{sec:offline-cbf}
+
+There are a few interesting approaches to learn CBFs for nonlinear systems with unknown dynamics in an offline supervised learning set-up. Saveriano et al. \cite{Saveriano2019} focus on incremental learning of a set of linear parametric zeroing control barrier functions (ZCBFs)\cite{Ames2019}. ZCBF is a type of CBF, which approaches infinity in the boundary of its safe set. ZCBFs are combined with a dynamical system-based motion planner such as dynamic movement primitives to ensure the constraint satisfaction for planned trajectories. The state constraint for the motion trajectory can be learned from human demonstrations and formulated as ZCBFs. A QP can then be used to find a stabilizing controller, where the states of the motion planner are constrained by the ZCBF. This enables the motion planner to generate a feasible motion trajectory satisfying the safety constraints. Another approach for estimating ZCBFs (both in offline and online settings) of control affine robotic system from sensor data is presented in \cite{Srinivasan2020}. A support vector machine (SVM) approach, namely the kernel-SVM method, is used to classify the set of safe and unsafe states in the data set. An online approach is defined for the scenario where the full set of unsafe samples from the environment is not available for offline learning. Robey et al. \cite{Robey2020} present an approach to learn CBFs for nonlinear control affine dynamical systems of the form (\ref{nl_ca_ds}) using expert demonstrations of safe trajectories. This approach is agnostic to the parameterization used to represent CBFs. An optimization method is defined to synthesize valid local CBFs from the collected expert demonstrations. 
+
+An approach to synthesize NN-based controllers for nonlinear dynamical systems where safety guarantees are provided by NN-based barrier functions is proposed in \cite{Zhao2020}. The controller and the barrier functions are simultaneously trained using the same data set using a modified Stochastic Gradient Descent (SGD) optimization technique. A formal verification to guarantee safety of the synthesized controller is provided.
+
+In a different approach using GPs, presented in \cite{Jagtap2020}, the authors learn the unknown control affine nonlinear dynamics as GPs. A parametric nonlinear CBF is generated based on a counterexample guided inductive synthesis (CEGIS) method. A control policy is synthesized with safety guarantees in three steps. In the first step a GP is learned using a data set and a confidence interval is defined using the uncertainty of the learned model. The second step involves computing a parametric CBF using CEGIS. In the third step a controller can be synthesized by solving an optimization problem with a CBC-constraint.
+
+\subsection{Control Lyapunov Functions}\label{sec:offline-clf}
+
+For uncertain systems, offline supervised learning may be used to improve the estimate of a Lyapunov function. This approach is explored in \cite{Taylor2019}, where the derivative of the Lyapunov function is learned offline. Using an episodic learning approach, the time derivative of the Lyapynov function is iteratively improved. This, in turn, is used to ensure that the nominal controller, augmented with a QP-based optimal controller, satisfies the necessary conditions of the time derivative of the Lyapunov function, and renders the closed-loop system stable. The formulation of the QP is similar to the formulation in \cite{Taylor2019a}, except that a CLF rather than a CBF, is used to formulate the constraints. 
+
+
+
+\section{Discussion}\label{discussion}
+
+
+This paper presented a review of three different learning methods that use CLFs and CBFs for ensuring safe learning-based control, namely RL, online and offline SL. RL and typically online SL are both active learning methods, but differ in the way the control policy is derived. RL offers a flexible framework to learn any complex control policies based on data, while SL methods are often used in combination with optimization to find a control policy. Offline SL differs from these two approaches in its data collection strategy as it uses pre-collected data sets. Active learning methods may be more data-efficient for learning control policies for systems with complex dynamics, compared to offline SL methods \cite{chatzilygeroudis2019}. Especially for high dimensional robotic systems, the data requirements scale exponentially with the state space dimension, demanding very large pre-collected data sets. Active learning methods can explore state space efficiently, using for example an information maximization exploration strategy. Low quality data sets could adversely effect the accuracy of estimated model and thereby the resulting control policy. On the other hand, offline SL methods are suitable for learning from expert demonstrations.
+
+
+Online SL and RL methods offer an option to incrementally update/optimize the control policy and use the same policy to sample. An example is model-based policy search algorithms, which are proved to be very sample efficient for policy optimization \cite{chatzilygeroudis2019}. For robotic systems, a nominal safe controller may be used for collecting data or initial exploration of state space, but this may only be valid in small local areas. For offline SL methods, this can therefore result in small and local data sets, limiting the possible control policies that can be learned. Gradually obtaining a less conservative control policy using incrementally updated estimates of the system model, as in online SL and RL methods, can therefore be very convenient. 
+
+Using NNs to model the optimal policy in RL-algorithms enable approximation of arbitrary complex policies. On the downside, providing safety guarantees for the resulting policy is hard as it is only an approximation of the safe policy. SL methods will often be used in combination with optimization to derive the controller, for which it can be easier to provide stricter guarantees. Combining RL with an optimization-based safety filter could provide stricter safety guarantees, in addition to providing rich expressibility of the final policy. However, this comes at the cost of solving an additional optimization problem in real-time as discussed in Section \ref{sec:rl-cbf}. For optimization-based safety filters that alter the learned policy in order to satisfy safety constraints, a relevant question is how this modification affects the learning process. Depending on the applied RL-algorithm, this can disrupt the learning process such that the learned policy becomes suboptimal. This issue is addressed for several RL-algorithms in \cite{gros2020safe}. 
+
+Offline SL methods can generate a model of the system dynamics, which can be used to formulate an optimal control problem for the system. Offline SL methods are predominantly used for learning CBFs rather than learning the dynamics model or CLFs, as observed in Section \ref{sec:offline_supervised}. For some dynamical systems, controlling the system may not be needed in order to derive the safety constraints. One example is in the case of collision avoidance, where a camera system can be used to detect possible collision objects and learn the corresponding safety constraints. In this case offline SL may be an ideal tool for providing safe control policies. Learning CBFs using NNs could be suitable as it can represent a complex safe set accurately and incorporate constraints in real-time which are otherwise hard to model. Robust and well established machine learning approaches, such as clustering and classification can be utilized in learning the safe sets and thereby CBFs or CLFs. Consequently, CBFs and CLFs learned through offline SL could be used with RL or online SL methods to derive less restrictive controllers than using conservative CBFs or CLFs defined for the uncertain system.
+
+
+
+Considering robotics applications, both RL and online SL methods are suited as it may be hard to collect data offline. For applications demanding strict safety guarantees either online SL or RL with a safety filter can be used. Wang et al. \cite{Wang2017} provide a very good example of the practical use of a safety filter where a quadcopter's dynamics are learned safely using CBFs in an online SL setting. Offline SL methods can aid RL and online SL methods in learning the system dynamics and controller less restrictively. For robotic systems the dynamics are often control affine, an approximate prior model is usually available and a major part of the uncertain dynamics are linked to the environment rather than the robot itself. These properties make CBFs particularly suited for guaranteeing safety for a wide variety of robotic systems. CBF-based approaches can be generalized to most real world robotic systems using exponential CBFs \cite{Ames2019}. This includes systems such as robotic manipulators, bipedal robots, unmanned ground and aerial vehicles, autonomous underwater vehicles etc.
+
+When learning a controller for an uncertain system, desired safety and stability properties will dictate which approach is suited for ensuring safe control. The combination of CLFs and CBFs can be used to obtain control policies that ensure stability and safety for a wide range of safety-critical systems. If only interested in constraint satisfaction, then CLF-based methods will limit the set of possible control policies. This is because a policy derived from this approach will render the system asymptotically stable in addition to guaranteeing constraint satisfaction. Therefore CBFs are particularly suited for scenarios where safety is the primary goal, as it offers a less restrictive way to ensure constraint satisfaction compared to using CLFs. In cases where stability is of major importance, CLFs can provide constraint satisfaction in addition to stability guarantees at the expense of more restrictive conditions. In case of value function-based RL algorithms, CLFs can be incorporated naturally by using the value function itself as a Lyapunov function \cite{Berkenkamp2017}. 
+ 
+\section{Conclusion}\label{conclusion}
+
+This paper presents a literature review of learning methods that incorporate CBFs and CLFs and their combination. The review summarizes the existing learning-based methods for safe control of dynamical systems with uncertainty, utilizing CBFs and CLFs. The relevant references are divided into three main categories, decided by the learning method that CBFs and CLFs are combined with, namely RL, online and offline SL as shown in Table \ref{table:refs}. The similarities and differences between the methods used in the review references are highlighted and their suitability on different scenarios are discussed. It is observed that, despite steady progress, there still exists a large gap between theory and practical application of the methods. Because using CLFs and CBFs with learning is a rather new approach, a major challenge ahead is demonstrating their capabilities on real-world safety-critical systems. This widens the scope for future research in the area.
+
+\section*{Acknowledgements}
+This work has been supported by the IDUN-project (NFR 295920) , TAPI (NFR 294544) and ROMO (NFR 270941). 
+
+
+\bibliographystyle{unsrtnat}
+\bibliography{references1}
+
+\clearpage
+
+
+
+\end{document}
+
